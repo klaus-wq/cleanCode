@@ -1,0 +1,35 @@
+account - addressOfMetaMaskWallet (address_of_metaMask_wallet)
+// адрес кошелька Метамаск
+
+wallet - walletOfLastEntry (wallet_of_last_entry)
+// кошелёк, через который пользователь последний раз заходил на сайт
+
+current - currentDate (current_date)
+// текущая дата
+
+token - decodedToken (decoded_token)
+// результат декодирования токена
+
+text - titleOfActiveButton (title_of_active_button)
+// заголовок активной кнопки
+
+error - errorOfRegularExpression (error_of_regular_expression)
+// ошибка, возникшая в результате проверки регулярного выражения
+
+diff - differenceBetweenDates (difference_between_dates)
+// разница между двумя датами
+
+action_0 - lastActionOfFirstPlayer (last_action_of_first_player)
+// последнее действие первого игрока в дуэли
+
+position - positionOfCurrentPlayer (position_of_current_player)
+// позиция текущего игрока на карте
+
+roomAllData - fullDataOfCurrentRoom (full_data_of_current_room)
+// полная информация о текущей комнате, где проходит игра
+
+name - generationName (generation_name)
+// название текущей генерации
+
+maxComb - maxCombinationsCount (max_combinations_count)
+// максимальное количество комбинаций
