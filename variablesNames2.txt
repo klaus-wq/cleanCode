@@ -1,0 +1,35 @@
+6.1. indexLayer - indexOfCheckedLayer (index_of_checked_layer)
+// индекс проверяемого слоя
+
+weightImg - weigthOfCurrentImageInLayer (weight_of_current_image_in_layer)
+// вес текущего изображения в слое
+
+summWeights - summOfWeightsOfAllImages (summ_of_weights_of_all_images)
+// сумма весов всех изображений в слое
+
+maxWeight - maxWeightOfImageInLayer (max_weight_of_image_in_layer)
+// максимальный вес изображения в слое
+
+res - maxImagesCountToGenerate (max_images_count_to_generate)
+// максимальное количество изображений, которое может быть сгенерировано
+
+6.2. maxNumberOfCombinations (max_number_of_combinations)
+numberInLittleEndianFormat (number_in_little_endian_format)
+resultOfFeistelScheme (result_of_feistel_scheme)
+initializationVector (initialization_vector)
+resultOfMatrixTransposition (result_of_matrix_transposition)
+
+6.3. originalPrimeNumber (original_prime_number)
+// исходное простое число в генераторе Диемитко
+
+sizeOfPrimes (size_of_primes)
+// размер полученных простых чисел в генераторе Диемитко
+
+candidateToBePrime (candidate_to_be_prime)
+// число, которое необходимо проверить на простоту и необходимый размер
+
+6.4. arrTxt - stringAfterSlice (string_after_slice)
+tmp - nextPrimeNumber (next_prime_number)
+type - typeOfLayer (type_of_layer)
+init - dataToInitialization (data_to_initialization)
+array - arrayToSwap (array_to_swap)
