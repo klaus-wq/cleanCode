@@ -1,0 +1,45 @@
+7.1. isOpen - isOpenMenu (is_open_menu)
+isShow - isShowHelper (is_show_helper)
+isClick - isClickedActiveButton (is_click_active_button)
+isDisabled - isDisabledActiveRoom (is_disabled_active_room)
+isLoading - isLoadCharacterCustomization (is_load_character_customization)
+
+7.2. isDataDry - актуальны ли данные на текущий момент.
+{isDry && (
+    <div>
+		<div>Data is dry. Please, update.</div>
+		<button onClick={() => loadData()}>update</button>
+	</div>
+)}
+
+found - найдена ли текущая игра в массиве
+let found = this.games.find((g) => g.name === game);
+if (found) {
+    found.currentTurn = circle;
+}
+
+doneWallet - подключён ли кошелёк у пользователя
+doneWallet={!!storeUser.currentUser.wallet}
+
+success - пройдена ли первая проверка у загружаемого слоя
+const success = checkedLayerStep1();
+if (success) {
+    toast.success("Success!");
+    navigate("/");
+}
+
+7.3. for attribute in layerName[indexLayer].file
+
+7.4. // сначала получаем верхний элемент результирующего столбца, затем нижний
+top = hstack((arr1, arr2))
+bottom = hstack((arr3, arr4))
+resultArray = vstack((top, bottom))
+
+// входными данными функции одного раунда схемы Фейстеля будут являться правая и левая часть блока
+def round_feistel_scheme(left: str, right: str, key: str): ...
+
+7.5.
+def matrix_algDop(arr, i, j, mod):
+    reducedArr = delete(delete(arr,i,axis=0), j, axis=1) (tmp->reducedArr)
+    determinant = round(linalg.det(reducedArr)) (detTmp->determinant)
+    return (pow(-1, (i+1)+(j+1)) * determinant) % mod
