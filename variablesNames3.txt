@@ -35,11 +35,11 @@ top = hstack((arr1, arr2))
 bottom = hstack((arr3, arr4))
 resultArray = vstack((top, bottom))
 
-// входными данными функции одного раунда схемы Фейстеля будут являться правая и левая часть блока
+// входными данными функции одного раунда сети Фейстеля будут являться правая и левая часть блока
 def round_feistel_scheme(left: str, right: str, key: str): ...
 
 7.5.
 def matrix_algDop(arr, i, j, mod):
-    reducedArr = delete(delete(arr,i,axis=0), j, axis=1) (tmp->reducedArr)
-    determinant = round(linalg.det(reducedArr)) (detTmp->determinant)
+    reducedArr = delete(delete(arr,i,axis=0), j, axis=1) //(tmp->reducedArr)
+    determinant = round(linalg.det(reducedArr)) //(detTmp->determinant)
     return (pow(-1, (i+1)+(j+1)) * determinant) % mod
