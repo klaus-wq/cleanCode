@@ -1,0 +1,15 @@
+3.1
+1. Ui_AdbashWindow - AtbashWindow
+2. StoreUser - User
+3. Simple - PrimeNumbers
+4. Container - NumbersContainer
+5. StoreRooms - Game
+
+3.2
+1. add() - addNode()
+2. MMComp() - calculateComplex()
+3. setSwipeSupportChat(), setSwipeBlock() - setSwipe()
+4. addRoom(), addRoomWithFetch() - addRoom()
+5. c, shifr - encodedText
+6. n, key - publicKey
+7. temp - newNode
