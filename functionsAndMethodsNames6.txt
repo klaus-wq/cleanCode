@@ -1,0 +1,24 @@
+1. nextTo - swipeNextSlider
+// функция перелистывания на следующий слайд в слайдере
+2. getCollection - getCollectonData
+// функция возвращает название и изображение коллекции
+3. minuteFormat - formatMinutesToOutput
+// функция изменяет формат вывода минут
+4. showHidePassword - showHiddenSymbols
+// функция показывает скрытые символы пароля
+5. waitForElm - checkElementExist
+// функция проверяет появился ли элемент в DOM-дереве
+6. checkInGame - checkUserConnected
+// функция проверяет подключился ли пользователь к игре
+7. getBc - getBlockchainData
+// функция возвращает название и изображение блокчейна
+8. getConfig - getNearConnectionConfig
+// функция возвращает настройки near для различных сетей (mainnet, testnet)
+9. keplrConnect - checkKeplrConnected
+// функция проверяет подключен ли keplr
+10. setWalletFetch - setUserWallet
+// функция получает и устанавливает текущий активный кошелек пользователя
+11. clearIsUserRoom - clearRoomData
+// функция очищает данные о комнате
+12. getGame - getGameData
+// метод получает и форматирует данные об игре
