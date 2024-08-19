@@ -1,0 +1,174 @@
+1.
+if (diff.hours + diff.days * 24 >= Math.floor((duration * 1000) / (1000 * 60 * 60))) {
+    return false;
+} else {
+    return true;
+}
+=>
+const activeHours = Math.floor((duration * 1000) / (1000 * 60 * 60));
+const totalHours = diff.hours + diff.days * HOURS_PER_DAY;
+if (totalHours >= activeHours) {
+    return false;
+} else {
+    return true;
+}
+
+//упрощение условия, создание константы вместо магического значения
+
+2.
+this.setActivePotionHeader({
+    id: potionId,
+    duration: this.activePotions[potionId - 1].duration,
+    start: String(new Date()),
+});
+=>
+this.setActivePotionHeader({
+    id: potionId,
+    duration: this.activePotions[potionId - 1].duration,
+    start: new Date(),
+});
+
+//устранение приведения типов
+
+3.
+let characterElement: ICharacterElement = {
+    id: element.id,
+    layer: element.layer,
+    idInLayer: Number(element.idInLayer),
+    generationId: Number(element.generationId),
+    link: element.link,
+    price: Number(element.price),
+    count: Number(element.count),
+    limit: Number(element.limit),
+    sale: Number(element.sale),
+    effect: JSON.parse(element.effect),
+};
+=>
+let characterElement: ICharacterElement = {
+    id: element.id,
+    layer: element.layer,
+    idInLayer: Number(element.idInLayer),
+    generationId: Number(element.generationId),
+    link: element.link,
+    price: element.price,
+    count: element.count,
+    limit: element.limit,
+    sale: element.sale,
+    effect: JSON.parse(element.effect),
+};
+
+//устранение приведения типов
+
+4.
+sale > 0 && limit > 0 &&
+(myPotions && myPotions[potionId - 1].count === 0) &&
+Math.floor((sale * 100) / (price + sale)) > 0
+=>
+const isPromoNotEmpty = sale > 0 && limit > 0;
+const isMyPotionsNotEmpty = myPotions && myPotions[potionId - 1].count > 0;
+const isSaleNotEmpty = Math.floor((sale * 100) / (price + sale)) > 0;
+
+isPromoNotEmpty && isMyPotionsNotEmpty === false && isSaleNotEmpty
+
+//упрощение условия
+
+5.
+(Number(expiredTime.split("h")[0]) * 60 +
+Number(expiredTime.split("h")[1].split("m")[0])) /
+(storePotions.activePotions[potionId - 1].duration * 60)
+=>
+const getExpiredDate = (expiredTime: string) => {
+    let expiredHours = Number(expiredTime.split("h")[0]) * 60
+    let expiredMinutes = Number(expiredTime.split("h")[1].split("m")[0])
+
+    if (storePotions.activePotions[potionId - 1].duration === 0) {
+        return;
+    }
+
+    return (expiredHours + expiredMinutes) / (storePotions.activePotions[potionId - 1].duration * 60)
+}
+
+//добавлена проверка деления на ноль
+
+6.
+storeUser.stateVibration === "true"
+=>
+Boolean(storeUser.stateVibration) === true
+
+//добавлено приведение типов
+
+7.
+this.energy.countEnergy = Math.floor(this.energy.elapsedTime / intervalOfUpdateEnergy)
+=>
+const getCountEnergy = (intervalOfUpdateEnergy: number) => {
+    if (intervalOfUpdateEnergy === 0) {
+        return;
+    }
+    return Math.floor(this.energy.elapsedTime / intervalOfUpdateEnergy);
+}
+
+//добавление проверки деления на ноль
+
+8.
+if (error === "Username does not exist") {}
+=>
+const ERROR_EXISTING_USERNAME = "Username does not exist";
+if (error === ERROR_EXISTING_USERNAME) {}
+
+//добавление константы
+
+9.
+def GOST():
+    ...
+    percent = 100 / len(blocksBin)
+    ...
+=>
+def GOST():
+    ...
+    percent = 100 / len(blocksBin)
+    if percent === 0:
+        return None
+    ...
+
+//добавление проверки деления на ноль
+
+10.
+x2 = 0
+for i in range(len(dict)):
+    if bukvaArray[i].chastota != 0:
+        x2+=pow((bukvaArray[i].chastota / len(shifrotext) - freq[i]), 2) / (freq[i])
+return x2
+=>
+x2 = 0
+for i in range(len(dict)):
+    if wordsList[i].frequency == 0 or len(encodedText) == 0 or frequency[i] == 0:
+        return None
+    x2+=pow((wordsList[i].frequency / len(encodedText) - frequency[i]), 2) / (frequency[i])
+return x2
+
+//добавление проверки деления на ноль
+
+
+11.
+const elementFormat = String(element).length > 1 ? String(element) : "0" + String(element);
+=>
+const hoursFormat = (element: string) => {
+	return element.length > 1 ? element : "0" + element;
+};
+
+//избавление от приведения типов
+
+12. if (warriorCharacteristics[0].action === duelAction.giveUp ||
+warriorCharacteristics[1].action === duelAction.giveUp ||
+(warriorCharacteristics[1].health <= 0 &&
+warriorCharacteristics[1].action !== duelAction.protection &&
+current !== 1))
+=>
+const isLost = warriorCharacteristics[1].health <= 0 &&
+warriorCharacteristics[1].action !== duelAction.protection &&
+current !== 1
+
+if (warriorCharacteristics[0].action === duelAction.giveUp ||
+warriorCharacteristics[1].action === duelAction.giveUp || isLost)
+
+//упрощение условия
