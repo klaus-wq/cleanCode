@@ -1,0 +1,221 @@
+1.
+const imagesToFiles = (images: any[]) => {
+		//...
+		return files;
+};
+=>
+const imagesToFiles = (images: string[]): string[] => {
+		//...
+		return files;
+};
+
+//явное определение типа возвращаемого значения функцией
+
+2.
+const getProducts = async () => {
+    try {
+        const res = await fetchGetProducts();
+        if (res) {
+            setProducts(res.data);
+        }
+    } catch {
+        toast.error("getProducts wrong");
+    }
+};
+=>
+const getProducts = async (): Promise<void> => {
+    try {
+      	const products: IProduct[] = (await fetchGetProducts()).data;
+        if (products) {
+            setProducts(res);
+        }
+    } catch {
+        toast.error("getProducts wrong");
+    }
+};
+
+//явное определение типа возвращаемого значения функцией
+//явное определение типа переменной products
+
+3, 4, 5.
+const setSettings = async (
+		generationName: string,
+		imageCount: number,
+		width: number,
+		height: number,
+		init: any
+	) => {
+		let config: IConfig = {
+			layers: layerName
+				.filter((item) => item.isUploaded === true)
+				.map((item) => item.name),
+			image_count: imageCount,
+			image_details: {
+				width: width,
+				height: height,
+			},
+		};
+		//60 строк
+        const res = await fetchSetSettings(
+				generationName,
+				config,
+				rarity,
+				init,
+				manifestJsonResult
+			);
+}
+=>
+const setSettings = async (
+		generationName: string,
+		imageCount: number,
+		width: number,
+		height: number,
+		init: { [x: string]: number }
+	): Promise<boolean> => {
+		//60 строк
+		let config: IConfig = {
+			layers: layerName
+				.filter((item) => item.isUploaded === true)
+				.map((item) => item.name),
+			image_count: imageCount,
+			image_details: {
+				width: width,
+				height: height,
+			},
+		};
+        const isLoadedSettings = await fetchSetSettings(
+				generationName,
+				config,
+				rarity,
+				init,
+				manifestJsonResult
+			);
+        if (isLoadedSettings.data.result) {
+            return true;
+        }
+        return false;
+}
+
+//явное определение типа переменной init
+//инициализация переменной там, где она используется
+//явное определение типа возвращаемого значения функцией
+
+6, 7, 8.
+const checkAllLayers = () => {
+    let names: any = [];
+    layerName.map((item, index) => {
+        names.push(item.name);
+    });
+    if (
+        generationName === "" ||
+        Number(amount) < 1 ||
+        layerName.find((i) => i.name === "") !== undefined ||
+        layerName.find((i) => i.images.length === 0) !== undefined ||
+        !check2 ||
+        check1.find((i) => i === false) !== undefined
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+=>
+const checkAllLayers = (checkedLayers: boolean[], isCheckedSecondStep: boolean): boolean => {
+    const isEmptyNames = layerName.findIndex((i) => i.name === "") === -1;
+    const isEmptyImages = layerName.findIndex((i) => i.images.length === 0) === -1;
+    const isChecked = checkedLayers.findIndex((i) => i === false) !== -1;
+    if (
+        generationName === "" ||
+        Number(amount) < 1 ||
+        isEmptyNames === false ||
+        isEmptyImages === false ||
+        isCheckedSecondStep === false ||
+        isChecked === false
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//явное определение типа возвращаемого значения функцией
+//удаление неиспользуемой переменной names
+//явное определение типа входных параметров функции
+//упрощение условия
+
+9.
+const setCheckboxes = () => {...}
+=>
+const setCheckboxes = (): void => {...}
+
+//явное определение типа возвращаемого значения функцией
+
+10, 11.
+const swapElements = (array: any) => {...}
+=>
+	const swapElements = (
+		array: { name: string; weight: number }[]
+	): { name: string; weight: number }[] => {...}
+
+//явное определение типа возвращаемого значения функцией
+//явное определение типа входных параметров функции
+
+12.
+const getBlockchainId = (blockchain: string) => {...}
+=>
+const getBlockchainId = (blockchain: string): number => {...}
+
+//явное определение типа возвращаемого значения функцией
+
+13.
+const checkedSecondStep = () => {
+    let totalAmount = 1;
+    //20 строк
+    if (totalAmount >= amount) {
+        return true;
+    } else {
+        toast.error("max images = " + String(Math.floor(res)));
+        return false;
+    }
+}
+=>
+const checkedSecondStep = () => {
+    //20 строк
+    let totalAmount = 1;
+    if (totalAmount >= amount) {
+        return true;
+    } else {
+        toast.error("max images = " + String(Math.floor(res)));
+        return false;
+    }
+}
+
+//инициализация переменной там, где она используется
+
+14, 15.
+def lengthOfKey(text):
+    dict = alphabet(text)
+    text2 = oneRegistr(text)
+    text1 = ""
+    for i in text2:
+        if i in dict:
+            text1+=i
+    arrOfInd = searchCombinations(text1, 3)
+    //...
+}
+=>
+def lengthOfKey(text):
+    dict = alphabet(text)
+    text2 = oneRegistr(text)
+    text1 = ""
+    for i in text2:
+        if i in dict:
+            text1+=i
+    dict = None
+    text2 = None
+    arrOfInd = searchCombinations(text1, 3)
+    //...
+}
+
+//присваивание "недопустимого" значения переменной dict
+//присваивание "недопустимого" значения переменной text2
