@@ -1,0 +1,306 @@
+def casiski(text, lengthOfKey):
+    dictRus = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЪЫЭЮЯ"
+    dictEng = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    dictEngStr = "abcdefghijklmnopqrstuvwxyz"
+    dictRusStr = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+    dict = ""
+    for i in text:
+        if i in dictRus or i in dictRusStr:
+            dict = dictRus
+        elif i in dictEng or i in dictEngStr:
+            dict = dictEng
+
+    dictFreq = ""
+    dictEngFreq = "ETAOINSHRDLCUMWFGYPBVKXJQZ"
+    dictRusFreq = "ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙХЖШЮЦЩЭФЪЁ"
+    if dict == dictRus:
+        dictFreq = dictRusFreq
+    else:
+        dictFreq = dictEngFreq
+
+    text2 = text
+    if dict == dictRusUp:
+        for i in range(len(text2)):
+           for j in range(len(dictRus)):
+               if text2[i] == dictRus[j]:
+                   text2 = text2[:i] + dictRusUp[dictRus.index(text2[i])] + text2[i + 1:]
+                   break
+    elif dict == dictEngUp:
+       for i in range(len(text2)):
+           for j in range(len(dictEng)):
+               if text2[i] == dictEng[j]:
+                   text2 = text2[:i] + dictEngUp[dictEng.index(text2[i])] + text2[i + 1:]
+                   break
+
+    text1 = ""
+    for i in text2:
+        if i in dict:
+            text1+=i
+
+    mtx = []
+    for k in range(lengthOfKey):
+        mtx.append("")
+    for char in range(len(text1)):
+        mtx[char % lengthOfKey] += text1[char]
+    print(mtx)
+
+    popularSymb = []
+    for i in range(len(mtx)):
+        bukva = ""
+        cifra = 0
+        for k in dict:
+            if mtx[i].count(k)>cifra:
+                bukva = k
+                cifra = mtx[i].count(k)
+        popularSymb.append(bukva)
+    print(popularSymb)
+    key = ""
+    for i in range(len(popularSymb)):
+        if dict == dictRus:
+            key += dict[abs(dict.index(popularSymb[i]) - dict.index('О'))]
+        else:
+            key += dict[abs(dict.index(popularSymb[i]) - dict.index('E'))]
+    print(key)
+
+    return key
+
+1. dictRus = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЪЫЭЮЯ" - вынести как глобальную переменную
+2. dictEng = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" - вынести как глобальную переменную
+3. dictEngStr = "abcdefghijklmnopqrstuvwxyz" - убрать переменную (использовать upper())
+4. dictRusStr = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" - убрать переменную (использовать upper())
+5.
+dictRus = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЪЫЭЮЯ"
+dictEng = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+dictEngStr = "abcdefghijklmnopqrstuvwxyz"
+dictRusStr = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+dict = ""
+for i in text:
+    if i in dictRus or i in dictRusStr:
+        dict = dictRus
+    elif i in dictEng or i in dictEngStr:
+        dict = dictEng
+=>
+def defineDictionary(text: str):
+    resultDictionary = ""
+    for i in text.upper():
+        if i in dictRus:
+            resultDictionary = dictRus
+        elif i in dictEng:
+            resultDictionary = dictEng
+    return resultDictionary
+
+//определение алфавита вынесено в отдельную функцию
+
+6. dictEngFreq = "ETAOINSHRDLCUMWFGYPBVKXJQZ" - вынести как глобальную переменную
+7. dictRusFreq = "ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙХЖШЮЦЩЭФЪЁ" - вынести как глобальную переменную
+
+8.
+text2 = text
+if dict == dictRusUp:
+    for i in range(len(text2)):
+       for j in range(len(dictRus)):
+           if text2[i] == dictRus[j]:
+               text2 = text2[:i] + dictRusUp[dictRus.index(text2[i])] + text2[i + 1:]
+               break
+elif dict == dictEngUp:
+   for i in range(len(text2)):
+       for j in range(len(dictEng)):
+           if text2[i] == dictEng[j]:
+               text2 = text2[:i] + dictEngUp[dictEng.index(text2[i])] + text2[i + 1:]
+               break
+
+text1 = ""
+for i in text2:
+    if i in dict:
+        text1+=i
+=>
+text1 = ""
+for i in text.upper():
+    if i in dict:
+        text1+=i
+
+//убрана переменная text2
+
+9.
+mtx = []
+for k in range(lengthOfKey):
+    mtx.append("")
+for char in range(len(text1)):
+    mtx[char % lengthOfKey] += text1[char]
+print(mtx)
+=>
+def fillMatrix(text: str, size: int):
+    matrix = []
+    for k in range(size):
+        matrix.append("")
+    for char in range(len(text)):
+        matrix[char % size] += text[char]
+    return matrix
+
+//заполнение матрицы вынесено в отдельную функцию
+
+10.
+popularSymb = []
+for i in range(len(mtx)):
+    bukva = ""
+    cifra = 0
+    for k in dict:
+        if mtx[i].count(k)>cifra:
+            bukva = k
+            cifra = mtx[i].count(k)
+    popularSymb.append(bukva)
+=>
+def sortByPopularSymbols(matrix: list, dictionary: str):
+    popularSymbols = []
+    for i in range(len(matrix)):
+        letter = ""
+        numeric = 0
+        for k in dictionary:
+            if matrix[i].count(k) > numeric:
+                letter = k
+                numeric = matrix[i].count(k)
+        popularSymbols.append(letter)
+    return popularSymbols
+
+//сортировка от наиболее встречаюзего символа от менее встречающегося в тексте вынесена в отдельную функцию
+
+11.
+key = ""
+for i in range(len(popularSymb)):
+    if dict == dictRus:
+        key += dict[abs(dict.index(popularSymb[i]) - dict.index('О'))]
+    else:
+        key += dict[abs(dict.index(popularSymb[i]) - dict.index('E'))]
+print(key)
+=>
+def createKey(popularSymbols: list, dictionary: str):
+    key = ""
+    for i in range(len(popularSymbols)):
+        if dictionary == dictRus:
+            key += dict[abs(dictionary.index(popularSymbols[i]) - dictionary.index('О'))]
+        else:
+            key += dict[abs(dictionary.index(popularSymbols[i]) - dictionary.index('E'))]
+    return key
+
+//формирование ключа вынесено в отдельную функцию
+
+12.
+dictFreq = ""
+dictEngFreq = "ETAOINSHRDLCUMWFGYPBVKXJQZ"
+dictRusFreq = "ОЕАИНТСРВЛКМДПУЯЫЬГЗБЧЙХЖШЮЦЩЭФЪЁ"
+if dict == dictRus:
+    dictFreq = dictRusFreq
+else:
+    dictFreq = dictEngFreq
+=> переменная dictFreq далее не используется, можно убрать
+
+Итог:
+def casiski(text: str, lengthOfKey: int) -> str:
+    dictionary = defineDictionary(text)
+
+    textTemp = ""
+    for i in text.upper():
+        if i in dictionary:
+            textTemp+=i
+
+    matrix = fillMatrix(textTemp, lengthOfKey)
+
+    popularSymbols = sortByPopularSymbols(matrix, dictionary)
+
+    key = createKey(popularSymbols, dictionary)
+
+    return key
+
+13.
+lenText = len(text)
+if flag == 1:
+    res = ""
+    for i in range(len(key)):
+        text1 = text[:len(key[i])]
+        for j in range(len(key[i])):
+            res+=text1[int(key[i][j]) - 1]
+        text = text[len(key[i]):]
+    if len(res) != lenText:
+        res+=text
+=>
+if flag == 1:
+    resText = ""
+    lenText = len(text)
+    for i in range(len(key)):
+        textTemp = text[:len(key[i])]
+        for j in range(len(key[i])):
+            resText+=textTemp[int(key[i][j]) - 1]
+        text = text[len(key[i]):]
+    if len(resText) != lenText:
+        resText+=text
+
+//переменная lenText перемещена внутрь условия
+
+def codingVernam(text, key, flag):
+    textCode = []
+    for i in text:
+        textCode.append(ord(i))
+    print('t', textCode)
+
+    for i in range(len(textCode)):
+        textCode[i] = (bin(textCode[i])[2:]).zfill(25)
+    print(textCode)
+
+    keyCode = []
+    for i in key:
+        keyCode.append(ord(i))
+
+    for i in range(len(keyCode)):
+        keyCode[i] = (bin(keyCode[i])[2:]).zfill(25)
+
+    resText = ""
+    for i in range(len(textCode)):
+        tmp1 = xor(textCode[i], keyCode[i])
+        #resText += str(chr(int(tmp1)))
+        resText += str(chr(int(tmp1, 2)))
+
+    return resText
+
+14.
+textCode = []
+for i in text:
+    textCode.append(ord(i))
+
+for i in range(len(textCode)):
+    textCode[i] = (bin(textCode[i])[2:]).zfill(25)
+
+keyCode = []
+for i in key:
+    keyCode.append(ord(i))
+
+for i in range(len(keyCode)):
+    keyCode[i] = (bin(keyCode[i])[2:]).zfill(25)
+=>
+def encodeText(text: str):
+    encodedText = []
+    for i in text:
+        textCode.append(ord(i))
+
+    for i in range(len(encodedText)):
+        encodedText[i] = (bin(encodedText[i])[2:]).zfill(25)
+    return encodedText
+
+...
+
+encodedText = encodeText(text)
+encodedKey = encodeText(key)
+
+//кодирование текста и ключа перенесено в отдельную функцию
+
+15. tmp1 = xor(textCode[i], keyCode[i]) - можно убрать эту переменную
+
+Итог:
+def codingVernam(text: str, key: str) -> str:
+    encodedText = encodeText(text)
+    encodedKey = encodeText(key)
+
+    encodedResult = ""
+    for i in range(len(encodedText)):
+        encodedResult += str(chr(int(xor(encodedText[i], encodedKey[i]), 2)))
+
+    return encodedResult
