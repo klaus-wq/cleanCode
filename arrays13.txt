@@ -1,0 +1,82 @@
+1.
+def objInArr(obj:SubstrAndInd, arr:list[SubstrAndInd]):
+    for i in range(len(arr)):
+        if obj.substring == arr[i].substring:
+            return False
+    return True
+=>
+def objInArr(obj:SubstrAndInd, arr:list[SubstrAndInd]):
+    for i in arr:
+        if obj.substring == i.substring:
+            return False
+    return True
+
+//использование итераторов
+
+2.
+characteristics.forEach((key, i) => (buf[key] = values[i]));
+
+//использование forEach
+
+3.
+protected keys: Map<string, boolean> = new Map<string, boolean>();
+if (this.audioDB) {
+    let keys = await this.audioDB.transaction("audios").store.getAllKeys();
+    keys.forEach((key) => {
+        this.keys.set(key, true);
+    });
+}
+
+//использование Map, forEach
+
+4.
+def xor(a, b):
+    res = ""
+    for i in range(len(a)):
+        if a[i] == '1':
+            if b[i] == '1':
+                res+='0'
+            else:
+                res+='1'
+        if a[i] == '0':
+            if b[i] == '1':
+                res+='1'
+            else:
+                res+='0'
+    return res
+=>
+def xor(a: str, b: str):
+    return bool(a) != bool(b)
+
+//избавление от массива
+
+5.
+let animations: Map<number, jSprite> = new Map();
+previousPositions.forEach((el, i) => {
+    const cell = document.createElement("div");
+    cell.id = "previousPositions";
+    cell.style.position = "absolute";
+    cell.style.width = cellSize + "px";
+    cell.style.height = cellSize + "px";
+    cell.style.pointerEvents = "none";
+    cell.style.display = "block";
+    htmlEl2.appendChild(cell);
+
+    const children = document.createElement("div");
+    cell.appendChild(children);
+    children.id = "spaceSelect" + i;
+    children.style.transform = "scale(0.5)";
+    let anim = new jSprite({
+        spriteSheet: spaceSelect,
+        container: "spaceSelect" + i,
+        columns: 15,
+        rows: 1,
+        startFrame: 1,
+        timing: 80,
+        autoStart: false,
+        repeat: true,
+    });
+    animations.set(el, anim);
+});
+
+//использование Map, forEach
