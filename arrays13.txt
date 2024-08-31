@@ -1,11 +1,5 @@
 1.
 def objInArr(obj:SubstrAndInd, arr:list[SubstrAndInd]):
-    for i in range(len(arr)):
-        if obj.substring == arr[i].substring:
-            return False
-    return True
-=>
-def objInArr(obj:SubstrAndInd, arr:list[SubstrAndInd]):
     for i in arr:
         if obj.substring == i.substring:
             return False
