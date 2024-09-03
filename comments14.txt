@@ -1,0 +1,51 @@
+3.1.
+1.
+#проверка, что все элементы списка >= Ic эталонного
+def arrIc(arr:list, Ic):
+    for i in arr:
+        if i < Ic:
+            return False
+    return True
+
+2.
+//если слой прошёл проверку, то вес всем загруженным файлам устанавливается по умолчанию
+layerName.map((e, i) => {
+    if (isChecked[i]) {
+        buf[i].file.map((el, indexFiles) => {
+            buf[i].file[indexFiles].weight = 50;
+        });
+    }
+});
+
+3.
+#подсчёт наиболее встречающегося значение в массиве
+def counter(arr:list):
+...
+
+4.
+#file - загружен ли файл (1)
+#flag - шифрование (1) или расшифрование (0)
+def coding(file, block64Int, flag):
+    if file == 0:
+        if flag != 1:
+                 ...
+
+5.
+#генерация ключей в виде массива из 8 элементов, где каждый элемент - это 32 бита
+def genKeys_GOST(key256b:str):
+...
+
+6.
+//баланс кошелька
+let p = parseInt(b._hex, 16) / 1000000000000000000;
+if (p < amount + 0.6) {
+    toast.done(10);
+    toast.error("You don't have enought balance");
+    return;
+}
+
+7.
+//итоговый объект для обработки сервером
+let manifestJson: IManifest = {};
+
+3.2. Примеры отсутствуют в связи с малой практикой.
