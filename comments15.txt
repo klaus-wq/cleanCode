@@ -1,0 +1,149 @@
+1.
+//создаём массив из всех картинок на сайте
+isReady = Array.from(Array(el.length), (e, i) => {
+    return { image: Object.values(el)[i], isLoaded: false };
+});
+
+Информативный комментарий
+
+2.
+N = 10**100 #крайняя правая граница выбора двух чисел а и b
+M = 10000 #количество испытаний
+
+Прояснение
+
+3.
+#функция для отыскания НОД(a,b) - алгоритм Евклида
+def NOD(a, b):
+    count = 0
+    while a != 0 and b != 0:
+        if a > b:
+            a = a % b
+        else:
+            b = b % a
+        count += 1
+    return count #возвращаем - количество итераций
+
+Информативный комментарий, прояснение
+
+4.
+//todo remove this
+export const getIconAuthBlockchain = () => {...}
+
+Комментарий TODO
+
+5.
+{/* todo count of equipment uses */}
+{/* {selectedEquipment.count > 0 && (
+            <div className={styles.uses}>
+                <div className={styles.timer}>
+                    <ImgFromIDB src={timerShadow} alt="" />
+                    <div className={styles.pointImage}>
+                        <ImgFromIDB src={timer} alt="" />
+                    </div>
+                </div>
+                <div
+                    style={{
+                        color:
+                            selectedEquipment.count >= 1 &&
+                            selectedEquipment.count <= 10
+                                ? "#f00150"
+                                : selectedEquipment.count > 10 &&
+                                  selectedEquipment.count < 29
+                                ? "#ffbe17 "
+                                : "#fff",
+                    }}
+                >
+                    {selectedEquipment.count}{" "}
+                    {selectedEquipment.used > 0
+                        ? intl.formatMessage({ id: "uses left" })
+                        : intl.formatMessage({ id: "uses" })}
+                </div>
+            </div>
+        )} */}
+
+Комментарий TODO
+
+6.
+#сравнение остатка от деления с половиной делителя
+def comparison(b, N):
+    if N%b < b/2:
+        return 1
+    else:
+        return 0
+
+Информативный комментарий
+
+7.
+#если вы хотите сгенерировать 500 простых числа, каждое из которых будет состоять из 100 и более цифр, то
+#программа отработает за более чем 2 часа
+def generatePrimes():
+
+Предупреждения о последствиях
+
+8.
+#Эллиптические кривые представлены своими параметрами в порядке: p, a, b, q (из ГОСТ 34.10-12)
+curves = {
+    1: (
+        0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDC7,
+        0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDC4,
+        0xE8C2505DEDFC86DDC1BD0B2B6667F1DA34B82574761CB0E879BD081CFD0B6265EE3CB090F30D27614CB4574010DA90DD862EF9D4EBEE4761503190785A71C760,
+        0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF27E69532F48D89116FF22B8D4E0560609B4B38ABFAD2B85DCACDB1411F10B275
+
+    ),
+    2: (
+        0x8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006F,
+        0x8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006C,
+        0x687D1B459DC841457E3E06CF6F5E2517B97C7D614AF138BCBF85DC806C4B289F3E965D2DB1416D217F8B276FAD1AB69C50F78BEE1FA3106EFB8CCBC7C5140116,
+        0x800000000000000000000000000000000000000000000000000000000000000149A1EC142565A545ACFDB77BD9D40CFA8B996712101BEA0EC6346C54374F25BD
+    ),
+    3: (
+        0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDC7,
+        0xDC9203E514A721875485A529D2C722FB187BC8980EB866644DE41C68E143064546E861C0E2C9EDD92ADE71F46FCF50FF2AD97F951FDA9F2A2EB6546F39689BD3,
+        0xB4C4EE28CEBC6C2C8AC12952CF37F16AC7EFB6A9F69F4B57FFDA2E4F0DE5ADE038CBC2FFF719D2C18DE0284B8BFEF3B52B8CC7A5F5BF0A3C8D2319A5312557,
+        0x3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC98CDBA46506AB004C33A9FF5147502CC8EDA9E7A769A12694623CEF47F023ED
+    )
+}
+
+Прояснение
+
+9.
+#Алгоритм вычисления квадратного корня по модулю (Алгоритм Тонелли-Шэнкса)
+#p - 1 = 2**S*Q; x**2 = a (mod p)
+def sqrt_mod(a, p):
+
+Информативный комментарий, прояснение
+
+10.
+#возвращает массив из 8 элементов, где каждый элемент - это 32 бита
+def genKeys_GOST(key256b:str):
+
+Прояснение
+
+11.
+#9 В случае успешной проверки ЭП, Сервер зашифровывает хэш на открытом ключе Боба (в случае отправки сообщения от Боба Алисе – на открытом ключе Алисы)
+shifr_h = pow(h_text, serv_seckey_rsa, server_N)
+#10 .В случае успешной проверки ЭП, Сервер зашифровывает сообщение симметричным алгоритмом на сессионном ключе Боба и Сервера (в случае отправки сообщения от Боба Алисе – на сессионном ключе Алисы и Сервера)
+shifr_text_1_str = GOST_zamena(key_for_gost, rasshifr_text, 1)
+
+#11 Зашифрованное сообщение и зашифрованный хэш отправляются Бобу (или Алисе)
+message = {
+    'time': time.time(),
+    'name': sender_name,
+    'reciever_name': reciever_name,
+    'shifr_h': shifr_h,
+    'shifr_text_1_str': shifr_text_1_str,
+}
+
+Информативный комментарий, прояснение
+
+12.
+//todo think about placing this component
+export const InputPasswordModal: React.FC<IInputPasswordModalProps> = ({
+	passwordV,
+	titleRoom,
+	setUserInfo,
+	room,
+}) => {...}
+
+Комментарий TODO
