@@ -1,0 +1,109 @@
+1.
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  // other configurations...
+}
+
+4. Шум => удалить
+
+2.
+// if (!isMobile || id === undefined) {
+//   return <OnlyMobile />;
+// }
+
+11. Закомментированный код => удалить
+
+3.
+const ANIMATION_DURATION = 2000; // 2 seconds
+const FLAP_ANIMATION_DURATION = 400; // Flap animation duration
+
+4. Шум => удалить
+
+4.
+const id = "default"; // Replace with dynamic value
+
+2. Бормотание => //TODO: Replace with dynamic value
+
+5.
+// Update background and clouds positions
+backgroundPositionRef.current =
+(backgroundPositionRef.current - BACKGROUND_SPEED) % canvas.width;
+cloudsPositionRef.current =
+(cloudsPositionRef.current - CLOUDS_SPEED) % canvas.width;
+
+4. Шум => удалить
+
+6.
+// End of animation
+animationActive = false;
+
+4. Шум => удалить
+
+7.
+#9 В случае успешной проверки ЭП, Сервер зашифровывает хэш на открытом ключе Боба
+(в случае отправки сообщения от Боба Алисе – на открытом ключе Алисы)
+shifr_h = pow(h_text, serv_seckey_rsa, server_N)
+
+7. Избыточные комментарии =>
+#после успешной проверке ЭП сервер зашифровывает хэш на открытом ключе
+
+8.
+#10 В случае успешной проверки ЭП, Сервер зашифровывает сообщение симметричным алгоритмом на сессионном ключе Боба и Сервера
+(в случае отправки сообщения от Боба Алисе – на сессионном ключе Алисы и Сервера)
+shifr_text_1_str = GOST_zamena(key_for_gost, rasshifr_text, 1)
+
+7. Избыточные комментарии =>
+#после успешной проверке ЭП сервер зашифровывает сообщение на сессионном ключе
+
+9.
+# lengthBin = bin(length)[2:].zfill(8)
+# while len(lengthBin) != 64:
+#     lengthBin+='0'
+# bitArray.extend(lengthBin)
+
+11. Закомментированный код => удалить
+
+10.
+#вычисляет a mod p или -a mod p
+#первый символ числа может быть любой, если -, то отриц, иначе положит
+def amodp(a, p):
+
+7. Избыточные комментарии => удалить
+
+11.
+#генерация ключей
+def btnClicked_3(self):
+    if self.isCorrect() == None:
+        return None
+
+12. Не используйте комментарии там, где можно использовать функцию или переменную =>
+def generateKeys(self):
+
+12.
+#зашифровать
+def btnClicked_4(self):
+
+12. Не используйте комментарии там, где можно использовать функцию или переменную =>
+def encode(self):
+
+13.
+#0001101100001011101111000011001011001110101111001010101101000010
+#0110101001100011111100011100101101000000010001101011000011111100
+#print(GOST_zamena('0101010001101101001000000011001101101000011001010110110000110010011010010111001101100101001000000111001101110011011011100110001000100000011000010110011101111001011010010110011101110100011101000111001101100101011010000110010100100000001011000011110101110011', '0000000000000000000000000000000000000000000000000000000000000000', 1))
+
+4. Шум => удалить
+
+14.
+# start_prime = start_prime + 2
+# while isPrime(start_prime) != True:
+#     start_prime = start_prime + 2
+# tmp = start_prime
+
+11. Закомментированный код => удалить
+
+15.
+#16 Расшифрованное сообщение показывается только в случае успешной проверки ЭП
+self.print_msg(message)
+self.after = response.json()['time']
+
+7. Избыточные комментарии => удалить
